@@ -1,0 +1,67 @@
+{
+	// Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab ENDs, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	//
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"container_component_redux_store": {
+		"prefix": "tsrcdrdx",
+		"body": [
+			"import * as React from 'react';",
+			"import * as Redux from 'redux';",
+			"import { connect } from 'react-redux';",
+			"\t",
+			"import { MyReduxState } from './my-root-reducer.ts';",
+			"\t",
+			"export interface OwnProps {",
+			"    $BLOCK_COMMENT_START propFromParent: number $BLOCK_COMMENT_END",
+			"}",
+			"\t",
+			"type StateProps = ReturnType<typeof mapStateToProps>;",
+			"\t",
+			"type DispatchProps = ReturnType<typeof mapDispatchToProps>;",
+			"\t",
+			"type Props = StateProps & DispatchProps & OwnProps;",
+			"\t",
+			"interface StateProps {",
+			"    $BLOCK_COMMENT_START internalComponentStateField: string; $BLOCK_COMMENT_END",
+			"}",
+			"\t",
+			"interface State {",
+			"    $BLOCK_COMMENT_START internalComponentStateField: string; $BLOCK_COMMENT_END",
+			"}",
+			"\t",
+			"class ${TM_FILENAME_BASE} extends React.Component<Props, State> {",
+			"\t",
+			"    render() {",
+			"        return <div />;",
+			"    }",
+			"}",
+			"\t",
+			"const mapStateToProps(state: MyReduxState, ownProps: OwnProps) => {",
+			"    return {};",
+			"}",
+			"\t",
+			"const mapDispatchToProps = (",
+			"    dispatch: Redux.Dispatch<any>,",
+			"    ownProps: OwnProps",
+			") => {",
+			"    return {};",
+			"}",
+			"\t",
+			"export default connect<StateProps, DispatchProps, OwnProps, MyReduxState>(",
+			"    mapStateToProps,",
+			"    mapDispatchToProps",
+			")(${TM_FILENAME_BASE});"
+		],
+		"description": "Creates a React container componenent connected to the Redux store."
+	}
+}
